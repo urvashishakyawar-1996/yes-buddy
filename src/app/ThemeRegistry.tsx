@@ -5,6 +5,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import createCache from '@emotion/cache';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { Margin } from '@mui/icons-material';
 
 const customVars = {
   fontSizes: {
@@ -36,12 +37,12 @@ const theme = createTheme({
      body1: {
       fontSize: "16px",      
       lineHeight: "20px",    
-      color: "#5B6064!important",      
+      color: "#5B6064",      
     },
     body2: {
       fontSize: "14px",      
       lineHeight: "20px",    
-      color: "#41474D!important",      
+      color: "#41474D",      
     },
     
   },
@@ -59,6 +60,7 @@ MuiButton: {
      padding: '1.2rem 12px',
       backgroundColor: '#7a86d6', 
          height:"44px", 
+         fontWeight:"600",
       '&:hover': {
         backgroundColor: '#6a76c6', 
       },
@@ -70,10 +72,11 @@ MuiButton: {
       style: {
         borderColor: 'transparent',
         color: '#333',
-        backgroundColor: '#ebebeb',
+        backgroundColor: '#f2f2f2',
         height:"44px",
+        fontWeight:"600",
         '&:hover': {
-       backgroundColor: '#ebebeb',
+       backgroundColor: '#f2f2f2',
           borderColor: 'transparent',
         },
       },
@@ -133,16 +136,20 @@ MuiInputLabel: {
       },
     },
   },
- MuiCard: {
+MuiCard: {
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       padding: "32px",
       borderRadius: "12px",
       boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
       width: "480px",     
-      maxWidth: "100%", 
-      fontWeight:"400", 
-    },
+      maxWidth: "100%",   
+      fontWeight: "400",
+      [theme.breakpoints.down("sm")]: {
+        width: "100%",
+        margin: "0 15px",   
+      },
+    }),
   },
 },
   },
